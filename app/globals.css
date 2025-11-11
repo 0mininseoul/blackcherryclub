@@ -1,0 +1,226 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 전역 링크 스타일 - 파란색 완전 제거 */
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+}
+
+a:focus {
+  outline: 2px solid rgba(252, 165, 165, 0.5);
+  outline-offset: 2px;
+}
+
+/* 커스텀 스크롤바 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1A1A1A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #404040;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #606060;
+}
+
+/* 리퀴드 글래스 효과 - iOS 스타일 */
+@layer utilities {
+  .liquid-glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 0.5px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .liquid-glass:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+  }
+
+  .liquid-glass:active {
+    transform: translateY(0) scale(0.99);
+    box-shadow:
+      0 2px 12px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  /* 리퀴드 글래스 버튼 */
+  .liquid-glass-button {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 0.5px solid rgba(255, 255, 255, 0.22);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .liquid-glass-button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.28);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
+    transform: translateY(-1px);
+  }
+
+  .liquid-glass-button:active {
+    transform: translateY(0) scale(0.98);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow:
+      0 2px 12px rgba(0, 0, 0, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* 리퀴드 글래스 카드 - 가독성 개선을 위해 불투명도 증가 */
+  .liquid-glass-card {
+    background: rgba(255, 255, 255, 0.09);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 0.5px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .liquid-glass-card:hover {
+    background: rgba(255, 255, 255, 0.13);
+    border-color: rgba(255, 255, 255, 0.22);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.14);
+    transform: translateY(-2px);
+  }
+
+  /* 리퀴드 글래스 토글 (네비게이션 탭) */
+  .liquid-glass-toggle {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 0.5px solid rgba(255, 255, 255, 0.18);
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    cursor: pointer;
+  }
+
+  .liquid-glass-toggle.active {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.28);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 0 0 2px rgba(255, 255, 255, 0.1);
+  }
+
+  /* 텍스트 가독성 개선 - 강화된 그림자 */
+  .text-over-prism {
+    text-shadow:
+      0 2px 12px rgba(0, 0, 0, 0.6),
+      0 0 4px rgba(0, 0, 0, 0.8),
+      0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  .text-over-prism-light {
+    text-shadow:
+      0 2px 16px rgba(255, 255, 255, 0.8),
+      0 0 8px rgba(255, 255, 255, 0.6),
+      0 4px 24px rgba(255, 255, 255, 0.4);
+  }
+}
+
+/* 모바일 터치 피드백 개선 */
+@media (hover: none) and (pointer: coarse) {
+  .liquid-glass-button:active,
+  .liquid-glass-card:active,
+  .liquid-glass-toggle:active {
+    transition: transform 0.1s ease;
+  }
+}
+
+/* Backdrop filter fallback */
+@supports not (backdrop-filter: blur(40px)) {
+  .liquid-glass,
+  .liquid-glass-button,
+  .liquid-glass-card,
+  .liquid-glass-toggle {
+    background: rgba(255, 255, 255, 0.15);
+  }
+}
+
+/* 접근성 - 포커스 스타일 */
+button:focus-visible,
+.liquid-glass-button:focus-visible,
+.liquid-glass-toggle:focus-visible {
+  outline: 3px solid rgba(252, 165, 165, 0.6);
+  outline-offset: 3px;
+}
+
+/* 페이지 로드 애니메이션 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
