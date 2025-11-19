@@ -1,95 +1,120 @@
 const MUSIC_PLATFORMS = [
   {
-    name: "Spotify",
+    name: "🎵 Spotify",
     url: "https://open.spotify.com/album/3vBCDGbCdQhrwYId0JCNn1",
   },
   {
-    name: "Apple Music",
+    name: "🍎 Apple Music",
     url: "https://music.apple.com/us/album/cherrish-single/1828620757",
   },
   {
-    name: "YouTube Music",
+    name: "▶️ YouTube Music",
     url: "https://music.youtube.com/playlist?list=OLAK5uy_ldBgbrcbzv6DoAPAyRUtE7zTYNkYo273o",
   },
   {
-    name: "Melon",
+    name: "🍈 Melon",
     url: "https://www.melon.com/album/detail.htm?albumId=11969787",
   },
   {
-    name: "Genie",
+    name: "🧞 Genie",
     url: "https://www.genie.co.kr/detail/albumInfo?axnm=86545355",
   },
   {
-    name: "Bugs",
+    name: "🐛 Bugs",
     url: "https://music.bugs.co.kr/album/20743106?wl_ref=list_ab_01_ar",
+  },
+];
+
+const SOCIAL_LINKS = [
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/blackcherry_club",
+    icon: "📷",
+  },
+  {
+    name: "YouTube",
+    url: "https://www.youtube.com/@blackcherryclub",
+    icon: "▶️",
+  },
+  {
+    name: "Spotify",
+    url: "https://open.spotify.com/artist/30JHqF9dcNMD6apw6vByVW",
+    icon: "🎵",
   },
 ];
 
 const LIVE_VIDEOS = {
   full: "xvS7KgipJqU",
-  shorts: [
-    "QMVqcBOZ150",
-    "3uFcfCyd3ac",
-    "1ESKio4-rwA",
-  ],
 };
+
+const CONTACT_EMAIL = "blackcherryclub123@gmail.com";
 
 export default function Home() {
   return (
-    <div className="max-w-[1200px] mx-auto px-6 md:px-12 py-12 md:py-20">
-      {/* Discography Section */}
-      <section className="mb-20 md:mb-32">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center text-over-prism">
-          Discography
-        </h2>
-
-        <div className="liquid-glass-card p-6 md:p-10 rounded-2xl max-w-2xl mx-auto">
-          {/* Album Cover */}
-          <div className="w-full aspect-square rounded-2xl mb-6 overflow-hidden">
-            <img
-              src="/images/album-cherrish.png"
-              alt="Cherrish Album Cover"
-              className="w-full h-full object-cover"
-            />
+    <div className="min-h-screen flex items-center justify-center px-4 py-12">
+      <div className="w-full max-w-[600px]">
+        {/* Profile Section */}
+        <section className="text-center mb-8">
+          <div className="inline-block liquid-glass-card p-6 rounded-3xl mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white text-over-prism mb-3">
+              블랙체리클럽
+            </h1>
+            <p className="text-lg md:text-xl text-white/90 text-over-prism mb-2">
+              Black Cherry Club
+            </p>
+            <p className="text-sm md:text-base text-white/70 text-over-prism">
+              얼터너티브 R&B 인디 밴드
+            </p>
           </div>
+        </section>
 
-          {/* Album Info */}
-          <h3 className="text-2xl md:text-3xl font-bold mb-2 text-center text-over-prism">
-            [Cherrish]
-          </h3>
-          <p className="text-white/70 text-center mb-6 text-over-prism">
-            2025.07.31
-          </p>
-
-          {/* Platform Links */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
-            {MUSIC_PLATFORMS.map((platform) => (
-              <a
-                key={platform.name}
-                href={platform.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="liquid-glass-button px-4 py-3 md:px-6 md:py-4 rounded-xl text-center text-sm md:text-base min-h-[48px] flex items-center justify-center"
-              >
-                {platform.name}
-              </a>
-            ))}
+        {/* Latest Release */}
+        <section className="mb-6">
+          <div className="liquid-glass-card p-6 rounded-3xl">
+            <div className="flex items-center gap-4 mb-4">
+              <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
+                <img
+                  src="/images/album-cherrish.png"
+                  alt="Cherrish"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-white text-over-prism mb-1">
+                  Cherrish
+                </h3>
+                <p className="text-sm text-white/70 text-over-prism">
+                  2025.07.31
+                </p>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Live Videos Section */}
-      <section className="mb-20">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center text-over-prism">
-          Live Videos
-        </h2>
+        {/* Music Platform Links */}
+        <section className="mb-6 space-y-3">
+          {MUSIC_PLATFORMS.map((platform) => (
+            <a
+              key={platform.name}
+              href={platform.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full liquid-glass-button px-6 py-4 rounded-2xl text-center text-base md:text-lg font-semibold hover:scale-[1.02] transition-transform"
+            >
+              {platform.name}
+            </a>
+          ))}
+        </section>
 
-        {/* Full Video */}
-        <div className="mb-12 md:mb-16">
-          <div className="liquid-glass-card p-4 md:p-6 rounded-2xl max-w-3xl mx-auto">
-            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+        {/* Live Video */}
+        <section className="mb-6">
+          <div className="liquid-glass-card p-4 rounded-3xl">
+            <h3 className="text-lg font-bold text-white text-over-prism mb-3 px-2">
+              🎬 Live Performance
+            </h3>
+            <div className="relative w-full rounded-2xl overflow-hidden" style={{ paddingBottom: '56.25%' }}>
               <iframe
-                className="absolute inset-0 w-full h-full rounded-xl"
+                className="absolute inset-0 w-full h-full"
                 src={`https://www.youtube.com/embed/${LIVE_VIDEOS.full}`}
                 title="Black Cherry Club Live Performance"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -97,25 +122,41 @@ export default function Home() {
               />
             </div>
           </div>
-        </div>
+        </section>
 
-        {/* YouTube Shorts */}
-        <div className="grid grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
-          {LIVE_VIDEOS.shorts.map((videoId, index) => (
-            <div key={videoId} className="liquid-glass-card p-3 md:p-4 rounded-2xl">
-              <div className="relative w-full" style={{ paddingBottom: '177.78%' }}>
-                <iframe
-                  className="absolute inset-0 w-full h-full rounded-xl"
-                  src={`https://www.youtube.com/embed/${videoId}`}
-                  title={`Black Cherry Club Shorts ${index + 1}`}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+        {/* Social Links */}
+        <section className="mb-6">
+          <div className="grid grid-cols-3 gap-3">
+            {SOCIAL_LINKS.map((social) => (
+              <a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="liquid-glass-button px-4 py-4 rounded-2xl text-center flex flex-col items-center gap-2 hover:scale-105 transition-transform"
+              >
+                <span className="text-2xl">{social.icon}</span>
+                <span className="text-xs md:text-sm font-semibold">{social.name}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section className="text-center">
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            className="inline-block liquid-glass-card px-6 py-3 rounded-2xl text-sm text-white/80 hover:text-white text-over-prism transition-colors"
+          >
+            📧 {CONTACT_EMAIL}
+          </a>
+        </section>
+
+        {/* Footer */}
+        <footer className="text-center mt-8 text-white/50 text-xs text-over-prism">
+          <p>© 2025 블랙체리클럽 (Black Cherry Club)</p>
+        </footer>
+      </div>
     </div>
   );
 }
